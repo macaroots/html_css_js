@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super somas</title>
+    <link rel="stylesheet" href="estilo.css"/>
+</head>
+<body>
+    <!-- Receber o ano que nasceu e dizer a idade. -->
+    <h1>Somas pares ou ímpares!</h1>
+    <form onsubmit="event.preventDefault(); enviar();">
+        <label>
+            <span>A</span>
+            <input id="a" type="text" name="ano"/>
+        </label>
+        <label>
+            <span>B</span>
+            <input id="b" type="text" name="ano"/>
+        </label>
+        <button>cadastro</button>
+    </form>
+    <section>
+        <h1>Últimas somas: </h1>
+        <div id="mensagem"></div>
+    </section>
+    <section>
+        <h1>Pares: </h1>
+        <div id="menores" class="menor"></div>
+    </section>
+    <section>
+        <h1>Ímpares: </h1>
+        <div id="maiores" class="maior"></div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
