@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudantes</title>
+    <style>
+        .aprovado {
+            color: green;
+        }
+        .reprovado {
+            color: red;
+        }
+    </style>
+    <script>
+        function media(numeros) {
+            let soma = 0;
+            for (let numero of numeros) {
+                soma += numero;
+            }
+            let media = soma / numeros.length;
+            return media;
+        }
+        function aoSubmeter() {
+            let form = document.querySelector('form');
+            let aluno = {
+                nome: form.nome.value,
+                nota1: parseInt(form.nota1.value),
+                nota2: parseInt(form.nota2.value)
+            }
+            cadastrar(aluno);
+            exibir();
+        }
+        let alunos = [];
+        function cadastrar(aluno) {
+            alunos.push(aluno);
+        }
+        function listar() {
+            return alunos;
+        }
+        function exibir() {
+            let alunos = listar();
+            let tbody = document.querySelector('tbody');
+            tbody.innerHTML = '';
+            let medias = [];
+            for (let aluno of alunos) {
+                let tr = document.createElement('tr');
+                let tdNome = document.createElement('td');
+                let tdNota1 = document.createElement('td');
+                let tdNota2 = document.createElement('td');
+                let tdMedia = document.createElement('td');
+                let tdStatus = document.createElement('td');
+                let tdAcoes = document.createElement('td');
+                let btEditar = document.createElement('button');
+                let btApagar = document.createElement('button');
+                tdNome.innerHTML = aluno.nome;
+                tdNota1.innerHTML = aluno.nota1;
+                tdNota2.innerHTML = aluno.nota2;
+                let mediaAluno = media([aluno.nota1, aluno.nota2]);;
+                tdMedia.innerHTML = mediaAluno;
+                medias.push(mediaAluno);
+                let status;
+                if (mediaAluno >= 6) {
+                    status = 'aprovado';
+                }
+                else {
+                    status = 'reprovado';
+                }
+                tr.classList.add(status);
+                tdStatus.innerHTML = status;
+                btEditar.innerHTML = 'editar'
+                btApagar.innerHTML = 'apagar'
+                tr.appendChild(tdNome);
+                tr.appendChild(tdNota1);
+                tr.appendChild(tdNota2);
+                tr.appendChild(tdMedia);
+                tr.appendChild(tdStatus);
+                tr.appendChild(tdAcoes);
+                tdAcoes.appendChild(btEditar);
+                tdAcoes.appendChild(btApagar);
+                tbody.appendChild(tr);
+            }
+            document.querySelector('#mediaTurma').innerHTML = media(medias);
+        }
+    </script>
+</head>
+<body>
+    <h1>Estudantes</h1>
+    <form onsubmit="event.preventDefault(); aoSubmeter();">
+        <label>
+            <span>Nome</span>
+            <input name="nome">
+        </label>
+        <label>
+            <span>Nota 1</span>
+            <input name="nota1" type="number" step="any" value="0">
+        </label>
+        <label>
+            <span>Nota 2</span>
+            <input name="nota2" type="number" step="any" value="0">
+        </label>
+        <button>Cadastrar</button>
+    </form>
+    <button>Atualizar lista</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nota1</th>
+                <th>Nota2</th>
+                <th>Média</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div>
+        Média da turma: <span id="mediaTurma"></span>
+    </div>
+</body>
+</html>

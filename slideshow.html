@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        img {
+            width: 50%;
+        }
+        article {
+            display: none;
+        }
+        .visivel {
+            display: block;
+        }
+    </style>
+    <script>
+        function aoSubmeter() {
+            let form = document.querySelector('form');
+            let slide = {
+                foto: form.foto.value,
+                descricao: form.descricao.value
+            }
+            cadastrar(slide);            
+        }
+        let slides = [];
+        function cadastrar(slide) {
+            slides.push(slide);
+        }
+        function listar() {
+            return slides;
+        }
+        function exibir() {
+            let slides = listar();
+            let tela = document.querySelector('main');
+            tela.innerHTML = '';
+            for (let slide of slides) {
+                let artigo = document.createElement('article');
+                let imagem = document.createElement('img');
+                let descricao = document.createElement('h1');
+                imagem.src = slide.foto.replace('C:\\fakepath\\', '');
+                imagem.alt = slide.descricao;
+                descricao.innerHTML = slide.descricao;
+                artigo.appendChild(imagem);
+                artigo.appendChild(descricao);
+                tela.appendChild(artigo);
+            }
+            let atual = document.querySelector('#atual');
+            atual.value = 1;
+            atual.onchange();
+            document.querySelector('#quantidade').innerHTML = slides.length;
+        }
+        function passarSlide(passo) {
+            let atual = parseInt(document.querySelector('#atual').value) + passo;
+            exibirSlide(atual);
+        }
+        function exibirSlide(indice) {
+            let artigos = document.querySelectorAll('article');
+            let visivel = document.querySelector('.visivel')
+            if (visivel) {
+                visivel.classList.remove('visivel');
+            }
+            if (indice < 1) {
+                indice = artigos.length;
+            }
+            else if (indice > artigos.length) {
+                indice = 1;
+            }
+            artigos[indice - 1].classList.add('visivel');
+            document.querySelector('#atual').value = indice;
+        }
+    </script>
+</head>
+<body>
+    <h1>Slideshow</h1>
+    <form onsubmit="event.preventDefault(); aoSubmeter();">
+        <label>
+            <span>Foto</span>
+            <input name="foto" type="file">
+        </label>
+        <label>
+            <span>Descrição</span>
+            <input name="descricao">
+        </label>
+        <button>Enviar</button>
+    </form>
+    <button onclick="exibir();">Atualizar lista</button>
+    <div>
+        <button onclick="passarSlide(-1);">Anterior</button>
+        Exibindo <input id="atual" onchange="exibirSlide(parseInt(this.value));" value="0">/<span id="quantidade">0</span>
+        <button onclick="passarSlide(1);">Próximo</button>
+    </div>
+    <main></main>
+</body>
+</html>
