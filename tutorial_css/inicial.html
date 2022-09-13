@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+	<title>Notícias - Listar</title>
+	<meta charset="utf-8" />
+
+	<!-- Definição para dispositivos móveis -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Bootstrap Latest compiled and minified CSS -->
+	
+	<link id="estilo" rel="stylesheet" href="esquerda.css" />
+	<!--
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
+	<link rel="stylesheet" href="centro.css" />
+	<link rel="stylesheet" href="direita.css" />
+	-->
+	
+	
+	<style>
+	section, header, nav, footer {
+		 /* border: 1px solid; */
+	}
+	div {
+		/* border: 1px solid #F00; */
+	}
+	</style>
+	<script>
+	function trocarEstilo(estilo) {
+		document.getElementById("estilo").href = estilo;
+	}
+	</script>
+</head>
+<body>
+	<header>
+		<h1 class="title"><a href="inicial.html"><img src="https://www.w3.org/2008/site/images/theme-web-design" alt="" />Programador Web</a></h1>
+	</header>
+	<nav class="col-sm-2">
+		<ul>
+			<li><a href="http://lipsum.com" target="_blank"><i>Lorem Ipsum</i></a></li>
+			<li><a href="listar.html">Listar</a></li>
+			<li><a href="cadastrar.html">Cadastrar</a></li>
+			<li><a href="">Trocar estilo:</a>
+				<ul>
+					<li><a href="javascript: trocarEstilo('puro.css');">HTML Puro</a></li>
+					<li><a href="javascript: trocarEstilo('esquerda.css');">Esquerda</a></li>
+					<li><a href="javascript: trocarEstilo('centro.css');">Centro</a></li>
+					<li><a href="javascript: trocarEstilo('direita.css');">Direita</a></li>
+					<li><a href="javascript: trocarEstilo('flex.css');">Grid/Flexbox</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div class="main">
+		<section class="col-sm-5">
+			<h2>Front-end</h2>
+			<div class="noticia">
+				<h3>CSS Zen Garden</h3>
+				<img src="https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKCH85qJPhABGAEyCJq-0exyRx41" />
+				<p>The CSS Zen Garden is a World Wide Web development resource "built to demonstrate what can be accomplished visually through CSS-based design.".</p>
+			</div>
+			<div class="noticia css">
+				<h3>CSS Bootstrap</h3>
+				<img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418134767pure-screen.png" />
+				<p>Bootstrap is the most popular HTML, CSS, and JavaScript framework for developing responsive, mobile-first websites.</p>
+			</div>
+		</section>
+		<section class="col-sm-5">
+			<h2>Back-end</h2>
+			<div class="noticia">
+				<h3>PHP: Hypertext Preprocessor</h3>
+				<img src="https://www.php.net/images/logos/php-logo.svg" />
+				<p>PHP is a popular general-purpose scripting language that is especially suited to web</p>
+			</div>
+		</section>
+	</div>
+	<footer>
+		<a href="contato.html">Contato</a>
+	</footer>
+</body>
+</html>

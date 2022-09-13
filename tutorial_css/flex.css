@@ -1,0 +1,51 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+header {
+    grid-column: 1/3;
+    background: lightblue;
+    text-align: center;
+}
+header img {
+    float: left;
+}
+footer {
+    grid-column: 1/3;
+    background: lightblue;
+}
+
+nav {
+    grid-column: 1;
+    grid-row: 2;
+    background: lightcyan;
+}
+.main {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-flow: row;
+    text-align: center;
+}
+section {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+}
+h2 {
+    grid-row: 1;
+}
+
+.noticia img {
+    height: 90px;
+}
+.noticia {
+    grid-row: 2;
+    text-align: center;
+}
+h3, p {
+    text-align: left;
+
+}

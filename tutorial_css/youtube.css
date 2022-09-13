@@ -1,0 +1,105 @@
+
+body {
+    color: #AAA;
+    font-family: arial;
+    background: #F9F9F9F9;
+    margin: 0px;
+}
+h1 {
+    color: #000;
+    font-size: larger;
+}
+header img, ul, form {
+    float: left;
+}
+form {
+    margin-left: 30px;
+}
+ul {
+    display: none;/*
+    position: absolute;
+    top: 10px;
+    background: #FFF;
+    padding: 20px;
+    list-style: none;*/
+}
+nav {
+    position: relative;
+}
+nav:hover ul {
+    display: block;
+}
+header div {
+    float: right;
+}
+#conteudo {
+    /* clear: both; */
+    /* overflow: auto; */
+    margin: 8px;
+    /*display: flex;*/
+}
+#tocando {
+    width: 60%;
+    /*flex: auto;*/
+    text-align: center;
+    float: left;
+}
+#tocando h1 {
+    text-align: left;
+}
+#tocando div {
+    text-align: left;
+}
+
+#proximos {
+    width: 39%;
+    /*flex: auto;*/
+    min-width: 370px;
+    float: left;
+    /* margin-left: 20px; */
+}
+#proximos > h1 {
+    float: left;
+}
+#proximos > span {
+    float: right;
+}
+.video {
+    clear: both;
+    margin-top: 10px;
+    overflow: auto;
+}
+.img {
+    width: 160px;
+    background: #000;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+    position: relative;
+}
+.video img {
+    height: 90px;
+}
+.video h1 {
+    font-size: medium;
+}
+.video h2 {
+    font-size: small;
+}
+.duracao {
+    color: #FFF;
+    background: #000;
+    font-size: small;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+header {
+    background: white;
+    /* overflow: visible; */
+    padding: 8px;
+    height: 31px;
+    position: sticky;
+    top: 0;
+}

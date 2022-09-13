@@ -1,0 +1,39 @@
+nav {
+	width: 30%;
+	float: right;
+	display: flex;
+	order: 2;
+}
+
+.main {
+	width: 70%;
+	margin-right: 30%;
+	text-align: center;
+	order: 1;
+}
+
+section {
+	width: 48%;
+	/* float: left; */
+	/* margin-left: 1%; */
+	min-width: 250px;
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+}
+
+footer {
+	clear: both;
+}
+
+section > div {
+    text-align: center;
+}
+
+section > div > p {
+    text-align: left;
+}
+
+.noticia > img {
+	height: 90px;
+}

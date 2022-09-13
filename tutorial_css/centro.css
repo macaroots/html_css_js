@@ -1,0 +1,40 @@
+header {
+    text-align: center;
+}
+
+li ul {
+    display: none;
+    position: absolute;
+    padding-top: 10px;
+}
+li:hover {
+    background: #0AA;
+}
+li:hover ul{
+    display: block;
+}
+nav {
+    background: #CCC;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+nav > ul > li {
+    display: inline-block;
+    background: #0CC;
+    width: 100px;
+    text-align: center;
+}
+.noticia img {
+    height: 90px;
+}
+
+.noticia {
+    width: 30%;
+    min-width: 200px;
+    float: left;
+    margin-left: 10px;
+}
+section, footer {
+    clear: left;
+}
